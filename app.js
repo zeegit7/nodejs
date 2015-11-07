@@ -168,10 +168,11 @@ var handle_get = function (req, res) {
     page( req, res, state, ts ) ;
 }
 
+app.set('port', (process.env.PORT || 5000));
+
 app.post("*", handle_post );
 app.get( "*", handle_get ) ;
 
-console.log( "Server running on Port 8080..." ) ;
-
-app.listen(8080);
-
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
