@@ -33,6 +33,7 @@ var page = function( req, res, state ) {
             client.get( endpoint, 
                 function(data, response_raw){
                     console.log(data);
+                    console.log(response_raw.statusCode)
                     count = data.countGumballs
                     console.log( "count = " + count ) ;
                     var msg =   "\n\nMighty Gumball, Inc.\n\nNodeJS-Enabled Standing Gumball\nModel# " + 
