@@ -18,7 +18,14 @@ MongoDB / MongoLabs
 
 	  mongodb://heroku_jc07tp0r:paf27qhrk1l9v9bj2ecqks4n5c@ds045614.mongolab.com:45614/heroku_jc07tp0r
  	
+  Troubleshoot Connections:
 
+    ping ds045614.mongolab.com
+    nc -w 3 -v ds045614.mongolab.com 45614
+    
+  MongoDB Node Drivers:
+  
+    https://docs.mongodb.org/ecosystem/drivers/node-js/
 
 ======================
 package.json (changes)
