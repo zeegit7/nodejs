@@ -7,7 +7,6 @@ package.json (changes)
   "name": "gumball_v1",
   "description": "Simple Test Form",
   "version": "1.0.0",
-  "version": "1.0.0",
   "main": "app.js",
   "engines": {
     "node": "4.1.1"
