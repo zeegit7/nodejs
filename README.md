@@ -1,5 +1,26 @@
 
 ======================
+MongoDB / MongoLabs
+======================
+
+  https://devcenter.heroku.com/articles/mongolab
+  http://docs.mongolab.com/connecting/
+
+  heroku config --app pnguyen-gumball | grep MONGOLAB_URI
+  MONGOLAB_URI: 
+  mongodb://heroku_jc07tp0r:paf27qhrk1l9v9bj2ecqks4n5c@ds045614.mongolab.com:45614/heroku_jc07tp0r
+
+  To connect using the mongo shell:
+
+	  mongo ds045614.mongolab.com:45614/heroku_jc07tp0r -u heroku_jc07tp0r -p paf27qhrk1l9v9bj2ecqks4n5c
+
+  To connect using a driver via the standard MongoDB URI (what's this?):
+
+	  mongodb://heroku_jc07tp0r:paf27qhrk1l9v9bj2ecqks4n5c@ds045614.mongolab.com:45614/heroku_jc07tp0r
+ 	
+
+
+======================
 package.json (changes)
 ======================
 
