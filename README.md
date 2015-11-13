@@ -22,6 +22,7 @@ MongoDB / MongoLabs
 
     ping ds045614.mongolab.com
     nc -w 3 -v ds045614.mongolab.com 45614
+    heroku logs --app pnguyen-gumball
     
   MongoDB Node Drivers:
   
