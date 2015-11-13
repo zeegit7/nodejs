@@ -270,9 +270,6 @@ app.set('port', (process.env.PORT || 5000));
 app.post("*", handle_post );
 app.get( "*", handle_get ) ;
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
 
 
 db_init(function (err, results) {
@@ -285,7 +282,9 @@ db_init(function (err, results) {
         //db.collections(function(err, collections) {
         //    console.log(collections);
         //});
-        app.listen(8080);
+        app.listen(app.get('port'), function() {
+            console.log('Node app is running on port', app.get('port'));
+        });
     }
 });
 
