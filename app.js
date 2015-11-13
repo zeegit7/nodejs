@@ -79,6 +79,8 @@ db_init = function (callback) {
         // 2. authenticate
         function (result, cb) {
             console.log("INIT: STEP 2. Authenticate...");
+            console.log("      ---> userid: " + db_user ) ;
+            console.log("      ---> passwd: " + db_pwd ) ;
             db.authenticate(db_user, db_pwd, function(err, res) {
                         if(!err) {
                             console.log("Authenticated");
