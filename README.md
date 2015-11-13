@@ -4,7 +4,7 @@ package.json (changes)
 ======================
 
 {
-  "name": "gumball_v1",
+  "name": "gumball",
   "description": "Simple Test Form",
   "version": "1.0.0",
   "version": "1.0.0",
@@ -21,6 +21,7 @@ package.json (changes)
     "express" : "3.x",
     "fs" : "0.0.2",
     "node-rest-client" : "1.4.1",
+    "mongodb" : ">=2.0.14",
     "vows" : "*"
   }
 }
