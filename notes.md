@@ -59,6 +59,12 @@ MongoDB / MongoLabs
   MONGOLAB_URI: 
   mongodb://heroku_jc07tp0r:paf27qhrk1l9v9bj2ecqks4n5c@ds045614.mongolab.com:45614/heroku_jc07tp0r
 
+  var db_host = "ds045614.mongolab.com" ;
+  var db_port = "45614" ;
+  var db_user = "heroku_jc07tp0r" ;
+  var db_pwd  = "paf27qhrk1l9v9bj2ecqks4n5c" ;
+  var db_name = "heroku_jc07tp0r" ;
+
   To connect using the mongo shell:
 
 	  mongo ds045614.mongolab.com:45614/heroku_jc07tp0r -u heroku_jc07tp0r -p paf27qhrk1l9v9bj2ecqks4n5c
