@@ -65,6 +65,11 @@ MongoDB / MongoLabs
   var db_pwd  = "paf27qhrk1l9v9bj2ecqks4n5c" ;
   var db_name = "heroku_jc07tp0r" ;
 
+  Grant Read/Write Role:
+  
+  use heroku_jc07tp0r
+  db.grantRolesToUser( "heroku_jc07tp0r", [ "readWrite" ] ) ;
+
   To connect using the mongo shell:
 
 	  mongo ds045614.mongolab.com:45614/heroku_jc07tp0r -u heroku_jc07tp0r -p paf27qhrk1l9v9bj2ecqks4n5c
