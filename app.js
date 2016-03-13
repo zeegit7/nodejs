@@ -13,7 +13,7 @@ Serial# 1234998871109
 
 **/
 
-var endpoint = "http://ec2-52-24-214-120.us-west-2.compute.amazonaws.com/GrailsGumballMachineVer2-2.0/gumballs/1";
+var endpoint = "http://52.9.120.14:8080/GrailsGumballMachineVer2-2.0/gumballs/1";
 
 var fs = require('fs');
 var express = require('express');
