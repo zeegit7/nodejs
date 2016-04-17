@@ -88,4 +88,58 @@ MongoDB / MongoLabs
   MongoDB Node Drivers:
   
     https://docs.mongodb.org/ecosystem/drivers/node-js/
-  
+    
+    
+=================
+Command Prompts
+=================
+    
+    
+    4  git branch -help
+    7  git branch --list
+    9  git branch version1
+   10  git branch --list
+   11  git checkout version1
+   12  git branch --list
+   14  git commit --all
+   17  git push --set-upstream origin version1
+   21  git checkout master
+   25  git branch version2
+   26  git checkout version2
+   60  git status
+   61  git add -A
+   62  git commit -m "."
+   64  git push --set-upstream origin version2
+   73  git status
+   74  git checkout master
+   76  git checkout version2
+   87  mpn install
+   88  npm install
+   90  git checkout version1
+   91  git checkout version2
+  121  npm test
+  125  npm install
+  126  ls node_modules/
+  130  vows
+  131  vows --spec
+  133  mkdir test
+  135  cd test
+  137  touch hellotest.js
+  139  vows --spec
+  145  vows --help
+  147  vows -v --spec
+  148  vows test/*
+  151  git status
+  152  git add -A
+  153  git status
+  154  git commit -m "."
+  155  git push
+  172  git branch --list
+  173  heroku pg:psql
+  177  heroku apps
+  178  heroku pg:psql
+  179  heroku pg:psql --app pnguyen-gumball
+  201  vows
+  202  vows --spec
+  205  node test/hello-test.js 
+  206  vows -w
