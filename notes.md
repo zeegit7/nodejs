@@ -1,4 +1,38 @@
 
+
+======================
+Git Branch Management
+======================
+
+$ git branch --list
+  * master
+  version1
+  version2
+  version3
+  version4
+  version5
+  version6
+
+git checkout <branch>
+git branch <new-branch>
+git branch -d <branch>
+
+git status
+git add -A
+git status
+git commit -m "."
+
+=================
+Heroku Toolbelt
+=================
+
+heroku apps
+heroku logs --app pnguyen-gumball
+heroku pg:psql
+heroku pg:psql --app pnguyen-gumball
+
+
+
 ======================
 package.json (changes)
 ======================
