@@ -1,4 +1,38 @@
 
+
+======================
+Git Branch Management
+======================
+
+$ git branch --list
+  * master
+  version1
+  version2
+  version3
+  version4
+  version5
+  version6
+
+git checkout <branch>
+git branch <new-branch>
+git branch -d <branch>
+
+git status
+git add -A
+git status
+git commit -m "."
+
+=================
+Heroku Toolbelt
+=================
+
+heroku apps
+heroku logs --app pnguyen-gumball
+heroku pg:psql
+heroku pg:psql --app pnguyen-gumball
+
+
+
 ======================
 package.json (changes)
 ======================
@@ -56,7 +90,9 @@ MongoDB / MongoLabs
   http://docs.mongolab.com/connecting/
 
   heroku config --app pnguyen-gumball | grep MONGOLAB_URI
+  
   MONGOLAB_URI: 
+  
   mongodb://heroku_jc07tp0r:paf27qhrk1l9v9bj2ecqks4n5c@ds045614.mongolab.com:45614/heroku_jc07tp0r
 
   var db_host = "ds045614.mongolab.com" ;
