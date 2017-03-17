@@ -42,10 +42,13 @@ MongoDB / MongoLabs
   
   https://www.mlab.com/databases/heroku_jc07tp0r
 
+  sudo apt-get install -y mongodb-org
+
   heroku config --app pnguyen-gumball | grep MONGOLAB_URI
   
   MONGOLAB_URI: 
-  mongodb://heroku_jc07tp0r:paf27qhrk1l9v9bj2ecqks4n5c@ds045614.mongolab.com:45614/heroku_jc07tp0r
+  
+    mongodb://heroku_jc07tp0r:paf27qhrk1l9v9bj2ecqks4n5c@ds045614.mongolab.com:45614/heroku_jc07tp0r
 
   To connect using the mongo shell:
 
