@@ -2,7 +2,7 @@
 /* REST API TEST */
 
 // Setup Rest Client 
-var endpoint = "http://52.9.120.14:8080/GrailsGumballMachineVer2-2.0/gumballs/1";
+var endpoint = "http://api.nguyenresearch.com:8080/gumball";
 var Client = require('node-rest-client').Client;
 var client = new Client();
 

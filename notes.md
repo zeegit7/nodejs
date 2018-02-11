@@ -3,6 +3,7 @@
 Git Branch Management
 ======================
 
+```
 $ git branch --list
 
 * master
@@ -16,11 +17,13 @@ $ git branch --list
 $ git checkout <branch>
 $ git branch <new-branch>
 $ git branch -d <branch>
+```
 
 ======================
 package.json (changes)
 ======================
 
+```
 {
   "name": "gumball",
   "description": "Simple Test Form",
@@ -42,11 +45,13 @@ package.json (changes)
     "vows" : "*"
   }
 }
+```
 
 =================
 app.js (changes)
 =================
 
+```
 app.set('port', (process.env.PORT || 5000));
 
 app.post("*", handle_post );
@@ -55,21 +60,23 @@ app.get( "*", handle_get ) ;
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
-
+```
 
 ===========
 .travis.yml
 ===========
 
+```
 language: node_js
 node_js:
   - "4.1"
-  
+```  
 
 ======================
 MongoDB / MongoLabs
 ======================
 
+```
   https://devcenter.heroku.com/articles/mongolab
   http://docs.mongolab.com/connecting/
 
@@ -106,13 +113,14 @@ MongoDB / MongoLabs
   MongoDB Node Drivers:
   
     https://docs.mongodb.org/ecosystem/drivers/node-js/
-    
+```
+
     
 =================
 Command Prompts
 =================
     
-    
+```    
     4  git branch -help
     7  git branch --list
     9  git branch version1
@@ -161,3 +169,4 @@ Command Prompts
   202  vows --spec
   205  node test/hello-test.js 
   206  vows -w
+```
