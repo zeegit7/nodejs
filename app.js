@@ -46,21 +46,21 @@ var DB = require('mongodb').Db,
     DB_Server = require('mongodb').Server,
     async = require('async') ;
 
-
-var db_host = "ds045614.mongolab.com" ;
-var db_port = "45614" ;
-var db_user = "heroku_jc07tp0r" ;
-var db_pwd  = "paf27qhrk1l9v9bj2ecqks4n5c" ;
-var db_name = "heroku_jc07tp0r" ;
-
-
 /*
+var db_host = "ds043220.mongolab.com" ;
+var db_port = "43220" ;
+var db_user = "user" ;
+var db_pwd  = "pwd" ;
+var db_name = "db" ;
+*/
+
+
 var db_host = "localhost" ;
 var db_port = "27017" ;
 var db_user = "cmpe281" ;
 var db_pwd  = "cmpe281" ;
 var db_name = "test" ;
-*/
+
    
 
 var db = new DB(db_name,
@@ -77,10 +77,9 @@ db_init = function (callback) {
             db.open(cb);
         },
         // 2. authenticate
+        /*        
         function (result, cb) {
             console.log("INIT: STEP 2. Authenticate...");
-            console.log("      ---> userid: " + db_user ) ;
-            console.log("      ---> passwd: " + db_pwd ) ;
             db.authenticate(db_user, db_pwd, function(err, res) {
                         if(!err) {
                             console.log("Authenticated");
@@ -92,6 +91,7 @@ db_init = function (callback) {
                         }
                     });
         },
+        */
         // 3. fetch collections
         function (result, cb) {
             console.log("INIT: STEP 3. Fetch Collections...");
@@ -267,12 +267,8 @@ app.get('/', function (req, res, next) {
 
 */
 
-app.set('port', (process.env.PORT || 5000));
-
-app.post("*", handle_post );
-app.get( "*", handle_get ) ;
-
-
+app.get('/', handle_get ) ;
+app.post('/', handle_post ) ;
 
 db_init(function (err, results) {
     if (err) {
@@ -280,12 +276,12 @@ db_init(function (err, results) {
         console.error(err);
         process.exit(-1);
     } else {
-        console.log( "Server running on Port 8080..." ) ;
         //db.collections(function(err, collections) {
         //    console.log(collections);
         //});
+        app.set('port', (process.env.PORT || 8080));
         app.listen(app.get('port'), function() {
-            console.log('Node app is running on port', app.get('port'));
+        console.log('Node app is running on port', app.get('port'));
         });
     }
 });
@@ -307,13 +303,29 @@ Port:   43220
 Login:  user
 Passwd: pwd
 
+-- MongoDB (Localhost) Connection
+
 Host:   localhost
 Port:   27017
 
 -- Add Mongodb Admin User
 
+See:  https://docs.mongodb.com/manual/tutorial/enable-authentication/
+
 use admin
 db.addUser('cmpe281', 'cmpe281');
+
+use test
+db.runCommand( { createUser: "accountAdmin01",
+                 pwd: "cleartext password",
+                 roles: [
+                           { role: "clusterAdmin", db: "admin" },
+                           { role: "readWriteAnyDatabase", db: "admin" },
+                             "readWrite"
+                        ],
+                 writeConcern: { w: "majority" , wtimeout: 5000 }
+                } )
+                
 
 -- Gumball MongoDB Collection (Create Document)
 
