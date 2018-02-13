@@ -304,7 +304,7 @@ Passwd: pwd
 Host:   localhost
 Port:   27017
 
--- Add Mongodb Admin User
+-- Add Mongodb DB User
 
 See:  https://docs.mongodb.com/manual/reference/method/db.createUser/
 
