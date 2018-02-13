@@ -29,6 +29,9 @@ install-node:
 	nvm install v8.9.4
 	node --version
 
+node:
+	nvm use v8.9.4
+
 install-heroku:   
 	npm install -g heroku-cli
 	heroku --version
