@@ -4,6 +4,7 @@
 Git Branch Management
 ======================
 
+```
 $ git branch --list
   * master
   version1
@@ -21,22 +22,25 @@ git status
 git add -A
 git status
 git commit -m "."
+```
 
 =================
 Heroku Toolbelt
 =================
 
+```
 heroku apps
 heroku logs --app pnguyen-gumball
 heroku pg:psql
 heroku pg:psql --app pnguyen-gumball
-
+```
 
 
 ======================
 MongoDB / MongoLabs
 ======================
 
+```
   https://devcenter.heroku.com/articles/mongolab
   http://docs.mongolab.com/connecting/
   
@@ -48,30 +52,32 @@ MongoDB / MongoLabs
   
   MONGOLAB_URI: 
   
-    mongodb://heroku_jc07tp0r:paf27qhrk1l9v9bj2ecqks4n5c@ds045614.mongolab.com:45614/heroku_jc07tp0r
+    mongodb://<db_user>:<db_pass>@ds045614.mlab.com:45614/heroku_jc07tp0r
 
   To connect using the mongo shell:
 
-	  mongo ds045614.mongolab.com:45614/heroku_jc07tp0r -u heroku_jc07tp0r -p paf27qhrk1l9v9bj2ecqks4n5c
+    mongo ds045614.mlab.com:45614/heroku_jc07tp0r -u <dbuser> -p <dbpassword> 
 
   To connect using a driver via the standard MongoDB URI (what's this?):
 
-	  mongodb://heroku_jc07tp0r:paf27qhrk1l9v9bj2ecqks4n5c@ds045614.mongolab.com:45614/heroku_jc07tp0r
- 	
+    mongodb://<dbuser>:<dbpassword>@ds045614.mlab.com:45614/heroku_jc07tp0r
+  
   Troubleshoot Connections:
 
-    ping ds045614.mongolab.com
-    nc -w 3 -v ds045614.mongolab.com 45614
+    ping ds045614.mlab.com
+    nc -w 3 -v ds045614.mlab.com 45614
     heroku logs --app pnguyen-gumball
     
   MongoDB Node Drivers:
   
     https://docs.mongodb.org/ecosystem/drivers/node-js/
+```
 
 ======================
 package.json (changes)
 ======================
 
+```
 {
   "name": "gumball_v1",
   "description": "Simple Test Form",
@@ -92,11 +98,14 @@ package.json (changes)
     "vows" : "*"
   }
 }
+```
+
 
 =================
 app.js (changes)
 =================
 
+```
 app.set('port', (process.env.PORT || 5000));
 
 app.post("*", handle_post );
@@ -105,14 +114,17 @@ app.get( "*", handle_get ) ;
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+```
 
 
 ===========
 .travis.yml
 ===========
 
+```
 language: node_js
 node_js:
   - "4.1"
+```
   
   

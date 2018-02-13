@@ -47,20 +47,18 @@ var DB = require('mongodb').Db,
     async = require('async') ;
 
 /*
-var db_host = "ds043220.mongolab.com" ;
-var db_port = "43220" ;
-var db_user = "user" ;
-var db_pwd  = "pwd" ;
-var db_name = "db" ;
-*/
-
-
 var db_host = "localhost" ;
 var db_port = "27017" ;
 var db_user = "cmpe281" ;
 var db_pwd  = "cmpe281" ;
 var db_name = "test" ;
+*/
 
+var db_host = (process.env.mongodb_host || "localhost" ) ;
+var db_port = (process.env.mongodb_port || "27017" ) ;
+var db_user = (process.env.mongodb_user || "cmpe281" ) ;
+var db_pwd  = (process.env.mongodb_pwd  || "cmpe281" ) ;
+var db_name = (process.env.mongodb_name || "test" ) ;
    
 
 var db = new DB(db_name,
@@ -76,8 +74,7 @@ db_init = function (callback) {
             console.log("INIT: STEP 1. Open MongoDB...");
             db.open(cb);
         },
-        // 2. authenticate
-        /*        
+        // 2. authenticate      
         function (result, cb) {
             console.log("INIT: STEP 2. Authenticate...");
             db.authenticate(db_user, db_pwd, function(err, res) {
@@ -91,7 +88,6 @@ db_init = function (callback) {
                         }
                     });
         },
-        */
         // 3. fetch collections
         function (result, cb) {
             console.log("INIT: STEP 3. Fetch Collections...");
@@ -310,22 +306,17 @@ Port:   27017
 
 -- Add Mongodb Admin User
 
-See:  https://docs.mongodb.com/manual/tutorial/enable-authentication/
+See:  https://docs.mongodb.com/manual/reference/method/db.createUser/
 
-use admin
-db.addUser('cmpe281', 'cmpe281');
+ use test
+ db.createUser(
+    {
+      user: "cmpe281",
+      pwd: "cmpe281",
+      roles: [ "readWrite", "dbAdmin" ]
+    }
+ )
 
-use test
-db.runCommand( { createUser: "accountAdmin01",
-                 pwd: "cleartext password",
-                 roles: [
-                           { role: "clusterAdmin", db: "admin" },
-                           { role: "readWriteAnyDatabase", db: "admin" },
-                             "readWrite"
-                        ],
-                 writeConcern: { w: "majority" , wtimeout: 5000 }
-                } )
-                
 
 -- Gumball MongoDB Collection (Create Document)
 
