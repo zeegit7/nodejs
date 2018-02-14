@@ -28,14 +28,6 @@ var mongoose = require('mongoose');
 var chance = require('chance').Chance();
 
 
-
-var db_host = "ds045614.mongolab.com" ;
-var db_port = "45614" ;
-var db_user = "heroku_jc07tp0r" ;
-var db_pwd  = "paf27qhrk1l9v9bj2ecqks4n5c" ;
-var db_name = "heroku_jc07tp0r" ;
-
-
 /*
 var db_host = "localhost" ;
 var db_port = "27017" ;
@@ -43,6 +35,13 @@ var db_user = "cmpe281" ;
 var db_pwd  = "cmpe281" ;
 var db_name = "test" ;
 */
+
+var db_host = (process.env.mongodb_host || "localhost" ) ;
+var db_port = (process.env.mongodb_port || "27017" ) ;
+var db_user = (process.env.mongodb_user || "cmpe281" ) ;
+var db_pwd  = (process.env.mongodb_pwd  || "cmpe281" ) ;
+var db_name = (process.env.mongodb_name || "test" ) ;
+
 
 /* DB Connection */
 // var dburi = "mongodb://"+db_user+":"+db_pwd+"@"+db_host+":"+db_port+"/"+db_name+""
@@ -88,19 +87,63 @@ var handle_post = function (req, res, next) {
   
 }
 
-app.set('port', (process.env.PORT || 5000));
 
 app.get(  '/gumball/:orderid', handle_get ) ;
 app.post( '/gumball', handle_post ) ;
 
-console.log( "Server running on Port 8080..." ) ;
+app.set('port', (process.env.PORT || 8080));
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-
 /**
+
+-- Test REST API
+
+curl -X POST https://cloud-paulnguyen.c9users.io/gumball
+curl -X GET https://cloud-paulnguyen.c9users.io/gumball/<ordnum>
+
+-- MongoDB (Mongo Labs) Connection
+
+Host:   ds043220.mongolab.com
+Port:   43220
+Login:  user
+Passwd: pwd
+
+-- MongoDB (Localhost) Connection
+
+Host:   localhost
+Port:   27017
+
+-- Add Mongodb Admin User
+
+See:  https://docs.mongodb.com/manual/reference/method/db.createUser/
+
+ use test
+ db.createUser(
+    {
+      user: "cmpe281",
+      pwd: "cmpe281",
+      roles: [ "readWrite", "dbAdmin" ]
+    }
+ )
+
+-- Gumball MongoDB Collection (Create Document)
+
+db.gumball.insert(
+{ 
+  id: 1,
+  countGumballs: 8,
+  modelNumber: 'M102988',
+  serialNumber: '1234998871109' 
+}
+) ;
+
+-- Gumball MongoDB Collection - Find Gumball Document
+
+db.gumball.find( { id: 1 } ) ;
+
 
 ** Gumball Machine Inventory **
 
@@ -125,21 +168,21 @@ db.gumball.update(
 db.gumballorders.insert( { OrdNum: '6447451112210432', OrdStatus: 'Submitted', } )
 
 db.gumballorders.insert( 
-	{ 	OrdNum: '6447451112210432',
-  		OrdStatus: 'Submitted',
-	}
+    {   OrdNum: '6447451112210432',
+        OrdStatus: 'Submitted',
+    }
 )
 
 db.gumballorders.find(
-	{
-    	"_id" : ObjectId("55439cea302ed2c804b0fe10")
-	}
+    {
+        "_id" : ObjectId("55439cea302ed2c804b0fe10")
+    }
 )
 
 db.gumballorders.find(
-	{
-    	"OrdNum" : "6737166575075328"
-	}
+    {
+        "OrdNum" : "6737166575075328"
+    }
 )
 
 db.gumballorders.find()

@@ -1,7 +1,7 @@
 {
   "name": "gumball_v6",
   "description": "Simple Test Form",
- "version": "1.0.0",
+  "version": "1.0.0",
   "main": "app.js",
   "engines": {
     "node": "4.1.1"
@@ -10,13 +10,13 @@
   "scripts": {
     "start": "node app.js",
     "test": "vows --spec"
-  },  
+  },
   "dependencies": {
-    "express" : "3.x",
-    "mongodb" : ">=2.0.14",
-    "mongoose" : ">=4.2.5",
-    "chance" : "0.6.3",
-    "async" : "0.9.0",
-    "fs" : "0.0.2"
+    "express": "3.x",
+    "mongodb": "2.x",
+    "mongoose": "5.x",
+    "chance": "0.6.3",
+    "async": "0.9.0",
+    "fs": "0.0.2"
   }
 }
