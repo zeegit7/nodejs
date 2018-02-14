@@ -29,8 +29,11 @@ install-node:
 	nvm install v8.9.4
 	node --version
 
-node:
+node-use:
 	nvm use v8.9.4
+
+node-default:	
+	nvm alias default 8.9.4 
 
 install-heroku:   
 	npm install -g heroku-cli
@@ -44,3 +47,5 @@ heroku-apps:
 
 heroku-tail:
 	heroku logs --tail --app pnguyen-gumball
+
+
